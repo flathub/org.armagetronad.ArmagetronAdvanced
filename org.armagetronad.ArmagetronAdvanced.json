@@ -57,16 +57,13 @@
                 }
             ],
             "post-install": [
-                "mkdir -p /app/share/appdata",
-                "cp armagetronad.appdata.xml /app/share/appdata",
-                "mkdir -p /app/share/applications",
-                "mv /app/share/armagetronad/desktop/armagetronad.desktop /app/share/applications",
-                "mkdir -p /app/share/icons/hicolor/16x16/apps",
-                "mv /app/share/armagetronad/desktop/icons/small/armagetronad.png /app/share/icons/hicolor/16x16/apps",
-                "mkdir -p /app/share/icons/hicolor/32x32/apps",
-                "mv /app/share/armagetronad/desktop/icons/medium/armagetronad.png /app/share/icons/hicolor/32x32/apps",
-                "mkdir -p /app/share/icons/hicolor/48x48/apps",
-                "mv /app/share/armagetronad/desktop/icons/large/armagetronad.png /app/share/icons/hicolor/48x48/apps"
+                "install -Dm644 armagetronad.appdata.xml /app/share/appdata/armagetronad.appdata.xml",
+                "install -Dm644 /app/share/armagetronad/desktop/armagetronad.desktop /app/share/applications/armagetronad.desktop",
+                "desktop-file-edit --remove-key=Path /app/share/applications/armagetronad.desktop",
+                "desktop-file-edit --remove-key=Terminal /app/share/applications/armagetronad.desktop",
+                "install -Dm644 /app/share/armagetronad/desktop/icons/small/armagetronad.png /app/share/icons/hicolor/16x16/apps/armagetronad.png",
+                "install -Dm644 /app/share/armagetronad/desktop/icons/medium/armagetronad.png /app/share/icons/hicolor/32x32/apps/armagetronad.png",
+                "install -Dm644 /app/share/armagetronad/desktop/icons/large/armagetronad.png /app/share/icons/hicolor/48x48/apps/armagetronad.png"
             ]
         }
     ]

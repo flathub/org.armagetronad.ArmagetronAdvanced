@@ -1,7 +1,7 @@
 {
     "app-id": "org.armagetronad.ArmagetronAdvanced",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "1.6",
+    "runtime-version": "20.08",
     "sdk": "org.freedesktop.Sdk",
     "finish-args": [
         "--device=dri",
@@ -11,8 +11,6 @@
         "--socket=pulseaudio"
     ],
     "command": "armagetronad",
-    "rename-appdata-file": "armagetronad.appdata.xml",
-    "rename-desktop-file": "armagetronad.desktop",
     "rename-icon": "armagetronad",
     "cleanup": [
         "/include",
@@ -22,7 +20,7 @@
         "*.la", "*.a"
     ],
     "modules": [
-        "shared-modules/glu/glu-9.0.0.json",
+        "shared-modules/glu/glu-9.json",
         "shared-modules/SDL/SDL-1.2.15.json",
         "shared-modules/SDL/SDL_image-1.2.12.json",
         {
@@ -34,20 +32,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://launchpad.net/armagetronad/0.2.8/0.2.8.3.4/+download/armagetronad-0.2.8.3.4.src.tar.bz2",
-                    "sha256": "23afa6d961cdcdf391849e1a4fafe8fc3330d9a8cb6671565b0303c709baf794"
-                },
-                {
-                    "type": "patch",
-                    "path": "armagetronad-xml2-config.patch"
+                    "url": "https://launchpad.net/armagetronad/0.2.9/0.2.9.1.0/+download/armagetronad-0.2.9.1.0.tbz",
+                    "sha256": "59b6c7c01ce3f8cca5437e33f974a637529541a11aa4f52c1a5c17499e26f6a1"
                 },
                 {
                     "type": "patch",
                     "path": "armagetronad-libpng-config.patch"
                 },
                 {
-                    "type": "file",
-                    "path": "armagetronad.appdata.xml"
+                    "type": "patch",
+                    "path": "armagetronad-appdata.patch"
                 },
                 {
                     "type": "script",
@@ -56,15 +50,6 @@
                         "autoreconf -vfi"
                     ]
                 }
-            ],
-            "post-install": [
-                "install -Dm644 armagetronad.appdata.xml /app/share/appdata/armagetronad.appdata.xml",
-                "install -Dm644 /app/share/armagetronad/desktop/armagetronad.desktop /app/share/applications/armagetronad.desktop",
-                "desktop-file-edit --remove-key=Path /app/share/applications/armagetronad.desktop",
-                "desktop-file-edit --remove-key=Terminal /app/share/applications/armagetronad.desktop",
-                "install -Dm644 /app/share/armagetronad/desktop/icons/small/armagetronad.png /app/share/icons/hicolor/16x16/apps/armagetronad.png",
-                "install -Dm644 /app/share/armagetronad/desktop/icons/medium/armagetronad.png /app/share/icons/hicolor/32x32/apps/armagetronad.png",
-                "install -Dm644 /app/share/armagetronad/desktop/icons/large/armagetronad.png /app/share/icons/hicolor/48x48/apps/armagetronad.png"
             ]
         }
     ]

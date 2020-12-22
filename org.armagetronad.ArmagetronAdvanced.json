@@ -8,10 +8,7 @@
         "--share=ipc",
         "--socket=x11",
         "--share=network",
-        "--socket=pulseaudio",
-        "--filesystem=~/.org.armagetronad.ArmagetronAdvanced/var:create",
-        "--filesystem=~/.org.armagetronad.ArmagetronAdvanced/resource/automatic:create",
-        "--filesystem=~/.org.armagetronad.ArmagetronAdvanced:ro"
+        "--socket=pulseaudio"
     ],
     "command": "org.armagetronad.ArmagetronAdvanced",
     "cleanup": [
@@ -31,7 +28,8 @@
             "config-opts": [
                 "--disable-games",
                 "--disable-uninstall",
-                "progname=org.armagetronad.ArmagetronAdvanced"
+                "progname=org.armagetronad.ArmagetronAdvanced",
+                "CXXFLAGS=-DUSER_DATA_DIR='\"$${XDG_DATA_HOME}/game\"' -DUSER_CONFIG_DIR='\"$${XDG_CONFIG_HOME}/game\"' -DAUTORESOURCE_DIR='\"$${XDG_CACHE_HOME}/resource\"'"
             ],
             "sources": [
                 {

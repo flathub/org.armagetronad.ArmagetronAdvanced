@@ -10,7 +10,7 @@
         "--share=network",
         "--socket=pulseaudio"
     ],
-    "command": "org.armagetronad.ArmagetronAdvanced",
+    "command": "ArmagetronAdvanced",
     "cleanup": [
         "/include",
         "/lib/pkgconfig",
@@ -26,9 +26,10 @@
             "name": "armagetronad",
             "rm-configure": true,
             "config-opts": [
+                "--disable-etc",
                 "--disable-games",
                 "--disable-uninstall",
-                "progname=org.armagetronad.ArmagetronAdvanced",
+                "progname=ArmagetronAdvanced",
                 "CXXFLAGS=-DUSER_DATA_DIR='\"$${XDG_DATA_HOME}/game\"' -DUSER_CONFIG_DIR='\"$${XDG_CONFIG_HOME}/game\"' -DAUTORESOURCE_DIR='\"$${XDG_CACHE_HOME}/resource\"'"
             ],
             "sources": [
@@ -49,19 +50,20 @@
                     "type": "script",
                     "dest-filename": "autogen.sh",
                     "commands": [
+                        "sed -i batch/sysinstall.in -e 's,install_link ,install ,g'",
                         "autoreconf -vfi"
                     ]
                 }
             ],
             "post-install": [
-                "sed -i /app/share/metainfo/*.appdata.xml -e 's,org.armagetronad.org.armagetronad,org.armagetronad,' -e 's,.desktop</id>,</id>,' -e 's,<!-- <launchable,<launchable,' -e 's,</launchable> -->,</launchable>,'",
+                "sed -i /app/share/metainfo/*.appdata.xml -e 's,.desktop</id>,</id>,' -e 's,<!-- <launchable,<launchable,' -e 's,</launchable> -->,</launchable>,'",
                 "install -Dm644 /app/share/metainfo/*.appdata.xml /app/share/appdata/org.armagetronad.ArmagetronAdvanced.appdata.xml",
-                "desktop-file-edit --remove-key=Path /app/share/org.armagetronad.ArmagetronAdvanced/desktop/*.desktop",
-                "desktop-file-edit --remove-key=Terminal /app/share/org.armagetronad.ArmagetronAdvanced/desktop/*.desktop",
-                "install -Dm644 /app/share/org.armagetronad.ArmagetronAdvanced/desktop/*.desktop /app/share/applications/org.armagetronad.ArmagetronAdvanced.desktop",
-                "install -Dm644 /app/share/org.armagetronad.ArmagetronAdvanced/desktop/icons/16x16/org.armagetronad.ArmagetronAdvanced.png /app/share/icons/hicolor/16x16/apps/org.armagetronad.ArmagetronAdvanced.png",
-                "install -Dm644 /app/share/org.armagetronad.ArmagetronAdvanced/desktop/icons/32x32/org.armagetronad.ArmagetronAdvanced.png /app/share/icons/hicolor/32x32/apps/org.armagetronad.ArmagetronAdvanced.png",
-                "install -Dm644 /app/share/org.armagetronad.ArmagetronAdvanced/desktop/icons/48x48/org.armagetronad.ArmagetronAdvanced.png /app/share/icons/hicolor/48x48/apps/org.armagetronad.ArmagetronAdvanced.png"
+                "desktop-file-edit --set-key=Icon --set-value=org.armagetronad.ArmagetronAdvanced /app/share/ArmagetronAdvanced/desktop/*.desktop",
+                "desktop-file-edit --remove-key=Path /app/share/ArmagetronAdvanced/desktop/*.desktop",
+                "desktop-file-edit --remove-key=Terminal /app/share/ArmagetronAdvanced/desktop/*.desktop",
+                "install -Dm644 /app/share/ArmagetronAdvanced/desktop/*.desktop /app/share/applications/org.armagetronad.ArmagetronAdvanced.desktop",
+                "for f in /app/share/icons/hicolor/*; do mv $f/apps/*.png $f/apps/org.armagetronad.ArmagetronAdvanced.png; done",
+                "rm -rf /app/share/ArmagetronAdvanced/desktop"
             ]
         }
     ]

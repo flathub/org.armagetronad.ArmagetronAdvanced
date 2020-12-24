@@ -30,7 +30,7 @@
                 "--disable-games",
                 "--disable-uninstall",
                 "progname=ArmagetronAdvanced",
-                "CXXFLAGS=-DUSER_DATA_DIR='\"$${XDG_DATA_HOME}/game\"' -DUSER_CONFIG_DIR='\"$${XDG_CONFIG_HOME}/game\"' -DAUTORESOURCE_DIR='\"$${XDG_CACHE_HOME}/resource\"'"
+                "CXXFLAGS=-DUSER_DATA_DIR='\"$${XDG_DATA_HOME}/ArmagetronAdvanced\"' -DUSER_CONFIG_DIR='\"$${XDG_CONFIG_HOME}/ArmagetronAdvanced\"' -DAUTORESOURCE_DIR='\"$${XDG_CACHE_HOME}/ArmagetronAdvanced/resource\"'"
             ],
             "sources": [
                 {

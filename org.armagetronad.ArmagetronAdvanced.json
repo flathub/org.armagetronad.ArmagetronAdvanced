@@ -16,6 +16,7 @@
         "/lib/pkgconfig",
         "/share/aclocal",
         "/share/man",
+        "/share/ArmagetronAdvanced/desktop",
         "*.la", "*.a"
     ],
     "modules": [
@@ -62,8 +63,7 @@
                 "desktop-file-edit --remove-key=Path /app/share/ArmagetronAdvanced/desktop/*.desktop",
                 "desktop-file-edit --remove-key=Terminal /app/share/ArmagetronAdvanced/desktop/*.desktop",
                 "install -Dm644 /app/share/ArmagetronAdvanced/desktop/*.desktop /app/share/applications/org.armagetronad.ArmagetronAdvanced.desktop",
-                "for f in /app/share/icons/hicolor/*; do mv $f/apps/*.png $f/apps/org.armagetronad.ArmagetronAdvanced.png; done",
-                "rm -rf /app/share/ArmagetronAdvanced/desktop"
+                "for f in /app/share/icons/hicolor/*; do mv $f/apps/*.png $f/apps/org.armagetronad.ArmagetronAdvanced.png; done"
             ]
         }
     ]

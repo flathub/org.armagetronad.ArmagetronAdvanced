@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# run Armagetron Advanced with the given parmeters in flatpak
+# applies appropriate forwarding and permission granting
+
+FLATPAK_ID=${FLATPAK_ID:-org.armagetronad.ArmagetronAdvanced}
+FLATPAK_BRANCH=${FLATPAK_BRANCH:-alpha}
+
+vardir=false
+if echo "$@" | grep -q -- --vardir; then
+    vardir=true
+fi
+
+filesystems=()
+params=()
+while ! test -z "$1"; do
+    case "$1" in
+        --record)
+            # next argument needs to exist for forwarding to work
+            touch "$2"
+            ;;
+        --autoresourcedir)
+            # resource cache: needs to exist, mount writable
+            abs=`readlink -f "$2"`
+            filesystems+=(--filesystem="${abs}:create")
+            ;;
+        --vardir)
+            # settings: needs to exist, mount writable
+            abs=`readlink -f "$2"`
+            filesystems+=(--filesystem="${abs}:create")
+            ;;
+        --userdatadir)
+            # user data: if not explicitly given elsewhere, var subdirectory needs to exist and be writable
+            abs=`readlink -f "$2"`
+            filesystems+=(--filesystem="${abs}:ro")
+            if test ${vardir} = false; then
+                filesystems+=(--filesystem="${abs}/var:create")
+            fi
+            ;;
+        --*dir)
+            # other directories just need to be readable
+            abs=`readlink -f "$2"`
+            filesystems+=(--filesystem="${abs}:ro")
+            ;;
+
+    esac
+
+    if test "$1" == --record; then
+        # next argument needs to exist for forwarding to work
+        touch "$2"
+    fi
+
+    if echo "$1" | grep -q '^-' || ! test -r "$1"; then
+        params+=("$1")
+    else
+        params+=("@@")
+        params+=("$1")
+        params+=("@@")
+    fi
+    
+    shift
+done
+
+if flatpak-spawn -h > /dev/null 2>&1; then
+    set -x
+    flatpak-spawn --watch-bus --host flatpak run --file-forwarding --branch=${FLATPAK_BRANCH} "${filesystems[@]}" ${FLATPAK_ID} "${params[@]}"
+else
+    set -x
+    flatpak run --file-forwarding --branch=${FLATPAK_BRANCH} "${filesystems[@]}" ${FLATPAK_ID} "${params[@]}"
+fi

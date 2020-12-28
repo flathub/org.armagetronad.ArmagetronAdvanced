@@ -48,6 +48,10 @@
                     "path": "armagetronad-appdata.patch"
                 },
                 {
+                    "type": "file",
+                    "path": "forward_args"
+                },
+                {
                     "type": "script",
                     "dest-filename": "autogen.sh",
                     "commands": [
@@ -57,6 +61,7 @@
                 }
             ],
             "post-install": [
+                "install -Dm755 forward_args ${FLATPAK_DEST}/bin/forward_args",
                 "sed -i /app/share/metainfo/*.appdata.xml -e 's,.desktop</id>,</id>,' -e 's,<!-- <launchable,<launchable,' -e 's,</launchable> -->,</launchable>,'",
                 "install -Dm644 /app/share/metainfo/*.appdata.xml /app/share/appdata/org.armagetronad.ArmagetronAdvanced.appdata.xml",
                 "desktop-file-edit --set-key=Icon --set-value=org.armagetronad.ArmagetronAdvanced /app/share/ArmagetronAdvanced/desktop/*.desktop",

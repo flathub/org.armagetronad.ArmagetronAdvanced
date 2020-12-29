@@ -4,7 +4,7 @@
 # applies appropriate forwarding and permission granting
 
 FLATPAK_ID=${FLATPAK_ID:-org.armagetronad.ArmagetronAdvanced}
-FLATPAK_BRANCH=${FLATPAK_BRANCH:-alpha}
+FLATPAK_BRANCH=${FLATPAK_BRANCH:-stable}
 
 vardir=false
 if echo "$@" | grep -q -- --vardir; then

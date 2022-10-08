@@ -2,8 +2,24 @@ diff --git a/desktop/armagetronad.appdata.xml.in b/desktop/armagetronad.appdata.
 index fb8e34ff..dcbc0c49 100644
 --- a/desktop/armagetronad.appdata.xml.in
 +++ b/desktop/armagetronad.appdata.xml.in
-@@ -36,4 +36,12 @@
-   <url type="homepage">http://www.armagetronad.org</url>
+@@ -24,16 +24,24 @@
+   <screenshots>
+     <screenshot type="default">
+-      <image>http://www.armagetronad.org/screenshots/ss_fort_1.png</image>
++      <image>https://www.armagetronad.org/screenshots/ss_fort_1.png</image>
+     </screenshot>
+     <screenshot>
+-      <image>http://www.armagetronad.org/screenshots/ss_sumo_1.png</image>
++      <image>https://www.armagetronad.org/screenshots/ss_sumo_1.png</image>
+     </screenshot>
+     <screenshot>
+-      <image>http://www.armagetronad.org/screenshots/screenshot_23.png</image>
++      <image>https://www.armagetronad.org/screenshots/screenshot_23.png</image>
+     </screenshot>
+   </screenshots>
+ 
+-  <url type="homepage">http://www.armagetronad.org</url>
++  <url type="homepage">https://www.armagetronad.org</url>
    <url type="bugtracker">https://gitlab.com/armagetronad/armagetronad/-/issues</url>
  
 +  <content_rating type="oars-1.1">

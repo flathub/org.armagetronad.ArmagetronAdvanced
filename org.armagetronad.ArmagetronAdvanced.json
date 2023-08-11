@@ -36,8 +36,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://launchpad.net/armagetronad/0.2.9/0.2.9.1.0/+download/armagetronad-0.2.9.1.0.tbz",
-                    "sha256": "59b6c7c01ce3f8cca5437e33f974a637529541a11aa4f52c1a5c17499e26f6a1"
+                    "url": "https://launchpad.net/armagetronad/0.2.9/0.2.9.1.1/+download/armagetronad-0.2.9.1.1.tbz",
+                    "sha256": "f617de700ecf1dd11f75e2932ee74796729112352d5cabaa2bc479add7dffd32"
                 },
                 {
                     "type": "patch",

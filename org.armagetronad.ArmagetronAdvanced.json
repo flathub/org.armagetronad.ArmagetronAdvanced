@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://sourceforge.net/projects/armagetronad/files/alpha/2020/0.2.9.2_alpha_z2424/armagetronad-alpha-0.2.9.2_alpha_z2424.tbz",
-                    "sha256": "2ab0e4665b0e25720295f6d907ed2ce5f22fca87496ee14a8e24af7f7ac1b1e8"
+                    "url": "https://download.armagetronad.org/staging/alpha/2023/0.2.9.2_alpha_z2949/armagetronad-alpha-0.2.9.2_alpha_z2949.tbz",
+                    "sha256": "e08b954010f81af961d747a364940cccab8c38904f3d0c723d18159e8345b928"
                 },
                 {
                     "type": "shell",

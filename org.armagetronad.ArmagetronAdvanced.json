@@ -3,6 +3,9 @@
     "runtime": "org.freedesktop.Platform",
     "runtime-version": "23.08",
     "sdk": "org.freedesktop.Sdk",
+    "rename-icon": "armagetronad",
+    "rename-desktop-file": "armagetronad.desktop",
+    "rename-appdata-file": "armagetronad.appdata.xml",
     "finish-args": [
         "--device=dri",
         "--share=ipc",
@@ -58,12 +61,8 @@
             ],
             "post-install": [
                 "sed -i /app/share/metainfo/*.appdata.xml -e 's,.desktop</id>,</id>,' -e 's,<!-- <launchable,<launchable,' -e 's,</launchable> -->,</launchable>,'",
-                "install -Dm644 /app/share/metainfo/*.appdata.xml /app/share/appdata/org.armagetronad.ArmagetronAdvanced.appdata.xml",
-                "desktop-file-edit --set-key=Icon --set-value=org.armagetronad.ArmagetronAdvanced /app/share/ArmagetronAdvanced/desktop/*.desktop",
-                "desktop-file-edit --remove-key=Path /app/share/ArmagetronAdvanced/desktop/*.desktop",
-                "desktop-file-edit --remove-key=Terminal /app/share/ArmagetronAdvanced/desktop/*.desktop",
-                "install -Dm644 /app/share/ArmagetronAdvanced/desktop/*.desktop /app/share/applications/org.armagetronad.ArmagetronAdvanced.desktop",
-                "for f in /app/share/icons/hicolor/*; do mv $f/apps/*.png $f/apps/org.armagetronad.ArmagetronAdvanced.png; done"
+                "desktop-file-edit --remove-key=Path /app/share/applications/*.desktop",
+                "desktop-file-edit --remove-key=Terminal /app/share/applications/*.desktop"
             ]
         }
     ]

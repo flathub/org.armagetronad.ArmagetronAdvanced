@@ -54,8 +54,8 @@
                 "sed -i ${FLATPAK_DEST}/share/appdata/*.xml -e 's,x-flatpak-,,g' -e 's,\\.desktop</id>,</id>,'",
                 "desktop-file-edit --remove-key=Path ${FLATPAK_DEST}/share/applications/*.desktop",
                 "desktop-file-edit --remove-key=Terminal ${FLATPAK_DEST}/share/applications/*.desktop",
-				"install -D icon-64x64.png ${FLATPAK_DEST}/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.png",
-				"#ls -Ralt ${FLATPAK_DEST}/share/icons"
+                "install -D icon-64x64.png ${FLATPAK_DEST}/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.png",
+                "#ls -Ralt ${FLATPAK_DEST}/share/icons"
 			]
         }
     ]

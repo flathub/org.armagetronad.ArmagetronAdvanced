@@ -1,7 +1,7 @@
 {
     "app-id": "org.armagetronad.ArmagetronAdvanced",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "22.08",
+    "runtime-version": "23.08",
     "sdk": "org.freedesktop.Sdk",
     "finish-args": [
         "--device=dri",
@@ -21,11 +21,10 @@
     ],
     "modules": [
         "shared-modules/glu/glu-9.json",
-        "shared-modules/SDL/SDL-1.2.15.json",
+        "shared-modules/SDL/sdl12-compat.json",
         "shared-modules/SDL/SDL_image-1.2.12.json",
         {
             "name": "armagetronad",
-            "rm-configure": true,
             "config-opts": [
                 "--disable-etc",
                 "--disable-games",
@@ -40,30 +39,17 @@
                     "sha256": "f617de700ecf1dd11f75e2932ee74796729112352d5cabaa2bc479add7dffd32"
                 },
                 {
-                    "type": "patch",
-                    "path": "armagetronad-libpng-config.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "armagetronad-appdata.patch"
-                },
-                {
-                    "type": "script",
-                    "dest-filename": "autogen.sh",
+                    "type": "shell",
                     "commands": [
-                        "sed -i batch/sysinstall.in -e 's,install_link ,install ,g'",
-                        "autoreconf -vfi"
-                    ]
+                        "test -r configure || ./bootstrap.sh",
+                        "sed -i batch/sysinstall.in -e 's,install_link ,install ,g'"
+                     ]
                 }
             ],
             "post-install": [
-                "sed -i /app/share/metainfo/*.appdata.xml -e 's,.desktop</id>,</id>,' -e 's,<!-- <launchable,<launchable,' -e 's,</launchable> -->,</launchable>,'",
-                "install -Dm644 /app/share/metainfo/*.appdata.xml /app/share/appdata/org.armagetronad.ArmagetronAdvanced.appdata.xml",
-                "desktop-file-edit --set-key=Icon --set-value=org.armagetronad.ArmagetronAdvanced /app/share/ArmagetronAdvanced/desktop/*.desktop",
-                "desktop-file-edit --remove-key=Path /app/share/ArmagetronAdvanced/desktop/*.desktop",
-                "desktop-file-edit --remove-key=Terminal /app/share/ArmagetronAdvanced/desktop/*.desktop",
-                "install -Dm644 /app/share/ArmagetronAdvanced/desktop/*.desktop /app/share/applications/org.armagetronad.ArmagetronAdvanced.desktop",
-                "for f in /app/share/icons/hicolor/*; do mv $f/apps/*.png $f/apps/org.armagetronad.ArmagetronAdvanced.png; done"
+                "sed -i ${FLATPAK_DEST}/share/appdata/*.xml -e 's,x-flatpak-,,g' -e 's,\\.desktop</id>,</id>,'",
+                "desktop-file-edit --remove-key=Path ${FLATPAK_DEST}/share/applications/*.desktop",
+                "desktop-file-edit --remove-key=Terminal ${FLATPAK_DEST}/share/applications/*.desktop"
             ]
         }
     ]

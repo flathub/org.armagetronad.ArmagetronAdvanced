@@ -20,7 +20,7 @@ index 516025448..08fefc12d 100644
    </description>
 -  
 +
-+  <icon type="remote">https://gitlab.com/armagetronad/steam-art/-/raw/master/good-inpieces/icons/icon-large.svg?ref_type=heads</icon>
++  <icon type="stock">org.armagetronad.ArmagetronAdvanced</icon>
 +
    <x-flatpak-launchable type="desktop-id">@progid@.desktop</x-flatpak-launchable>
    <screenshots>

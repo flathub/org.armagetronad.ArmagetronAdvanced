@@ -52,6 +52,10 @@
 				{
 					"type": "file",
 					"path": "icon-64x64.png"
+				},
+ 				{
+					"type": "file",
+					"path": "icon-128x128.png"
 				}
             ],
             "post-install": [
@@ -59,6 +63,7 @@
                 "desktop-file-edit --remove-key=Path ${FLATPAK_DEST}/share/applications/*.desktop",
                 "desktop-file-edit --remove-key=Terminal ${FLATPAK_DEST}/share/applications/*.desktop",
                 "install -D icon-64x64.png ${FLATPAK_DEST}/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.png",
+                "install -D icon-128x128.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png",
                 "#ls -Ralt ${FLATPAK_DEST}/share/icons"
 			]
         }

@@ -1,33 +1,46 @@
 diff --git a/desktop/armagetronad.appdata.xml.in b/desktop/armagetronad.appdata.xml.in
-index fb8e34ff..dcbc0c49 100644
+index 516025448..08be527af 100644
 --- a/desktop/armagetronad.appdata.xml.in
 +++ b/desktop/armagetronad.appdata.xml.in
-@@ -24,16 +24,24 @@
+@@ -4,7 +4,16 @@
+   
+   <name>@progtitle@</name>
+   <summary>3D Lightcycle Game</summary>
+-  
++  <developer id="tld.vendor">
++    <name>Armagetron Advanced Development Team</name>
++  </developer>
++
++  <categories>
++    <category>Game</category>
++    <category>ArcadeGame</category>
++    <category>ActionGame</category>
++  </categories>
++
+   <metadata_license>MIT</metadata_license>
+   <project_license>GPL-2.0-or-later</project_license>
+   
+@@ -19,17 +28,22 @@
+       The game supports custom maps (sadly without an editor) and just about every gameplay variable can be tweaked to your, or more likely, the server owner&apos;s heart content. Speed, map size, trail length and timeouts are just the start. Even the rigid right angle turn rule can be bent!
+     </p>
+   </description>
+-  
++
++  <icon type="stock">org.armagetronad.ArmagetronAdvanced</icon>
++
+   <x-flatpak-launchable type="desktop-id">@progid@.desktop</x-flatpak-launchable>
    <screenshots>
      <screenshot type="default">
--      <image>http://www.armagetronad.org/screenshots/ss_fort_1.png</image>
-+      <image>https://www.armagetronad.org/screenshots/ss_fort_1.png</image>
+       <image>https://www.armagetronad.org/screenshots/ss_fort_1.png</image>
++      <caption>Fortress game mode: Conquer the enemy circle</caption>
      </screenshot>
      <screenshot>
--      <image>http://www.armagetronad.org/screenshots/ss_sumo_1.png</image>
-+      <image>https://www.armagetronad.org/screenshots/ss_sumo_1.png</image>
+       <image>https://www.armagetronad.org/screenshots/ss_sumo_1.png</image>
++      <caption>Sumo game mode: Survive in a shrinking circle</caption>
      </screenshot>
      <screenshot>
--      <image>http://www.armagetronad.org/screenshots/screenshot_23.png</image>
-+      <image>https://www.armagetronad.org/screenshots/screenshot_23.png</image>
+       <image>https://www.armagetronad.org/screenshots/screenshot_23.png</image>
++      <caption>Alternative visuals</caption>
      </screenshot>
    </screenshots>
  
--  <url type="homepage">http://www.armagetronad.org</url>
-+  <url type="homepage">https://www.armagetronad.org</url>
-   <url type="bugtracker">https://gitlab.com/armagetronad/armagetronad/-/issues</url>
- 
-+  <content_rating type="oars-1.1">
-+    <content_attribute id="social-chat">moderate</content_attribute>
-+  </content_rating>
-+
-+  <releases>
-+    <release version="0.2.9.1.1" date="2023-08-12"/>
-+  </releases>
-+
- </component>

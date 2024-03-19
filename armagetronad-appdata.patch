@@ -7,7 +7,7 @@ index 516025448..08be527af 100644
    <name>@progtitle@</name>
    <summary>3D Lightcycle Game</summary>
 -  
-+  <developer id="tld.vendor">
++  <developer id="org.armagetronad">
 +    <name>Armagetron Advanced Development Team</name>
 +  </developer>
 +

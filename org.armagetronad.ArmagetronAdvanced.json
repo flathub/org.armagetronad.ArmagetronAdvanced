@@ -45,18 +45,6 @@
                         "sed -i batch/sysinstall.in -e 's,install_link ,install ,g'"
                      ]
                 },
-                {
-                    "type": "patch",
-                    "path": "armagetronad-appdata.patch"
-                },
-				{
-					"type": "file",
-					"path": "icon-64x64.png"
-				},
- 				{
-					"type": "file",
-					"path": "icon-128x128.png"
-				}
             ],
             "post-install": [
                 "sed -i ${FLATPAK_DEST}/share/appdata/*.xml -e 's,x-flatpak-,,g' -e 's,\\.desktop</id>,</id>,'",

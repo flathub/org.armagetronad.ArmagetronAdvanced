@@ -44,7 +44,7 @@
                         "test -r configure || ./bootstrap.sh",
                         "sed -i batch/sysinstall.in -e 's,install_link ,install ,g'"
                      ]
-                },
+                }
             ],
             "post-install": [
                 "sed -i ${FLATPAK_DEST}/share/appdata/*.xml -e 's,x-flatpak-,,g' -e 's,\\.desktop</id>,</id>,'",

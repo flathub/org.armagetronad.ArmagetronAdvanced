@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.armagetronad.org/staging/alpha/2023/0.2.9.2_alpha_z2949/armagetronad-alpha-0.2.9.2_alpha_z2949.tbz",
-                    "sha256": "e08b954010f81af961d747a364940cccab8c38904f3d0c723d18159e8345b928"
+                    "url": "https://download.armagetronad.org/staging/rc/2024/0.2.9.2_rc_z3006/armagetronad-0.2.9.2_rc_z3006.tbz",
+                    "sha256": "844130ad20c28dc00d5b3138088244d430dba2c99ae774259c5960cee2a996cb"
                 },
                 {
                     "type": "shell",
@@ -49,8 +49,11 @@
             "post-install": [
                 "sed -i ${FLATPAK_DEST}/share/appdata/*.xml -e 's,x-flatpak-,,g' -e 's,\\.desktop</id>,</id>,'",
                 "desktop-file-edit --remove-key=Path ${FLATPAK_DEST}/share/applications/*.desktop",
-                "desktop-file-edit --remove-key=Terminal ${FLATPAK_DEST}/share/applications/*.desktop"
-            ]
+                "desktop-file-edit --remove-key=Terminal ${FLATPAK_DEST}/share/applications/*.desktop",
+                "install -D icon-64x64.png ${FLATPAK_DEST}/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.png",
+                "install -D icon-128x128.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png",
+                "#ls -Ralt ${FLATPAK_DEST}/share/icons"
+			]
         }
     ]
 }

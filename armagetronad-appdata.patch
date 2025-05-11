@@ -1,8 +1,12 @@
 diff --git a/desktop/armagetronad.appdata.xml.in b/desktop/armagetronad.appdata.xml.in
-index 516025448..08be527af 100644
+index 51602544..847241aa 100644
 --- a/desktop/armagetronad.appdata.xml.in
 +++ b/desktop/armagetronad.appdata.xml.in
-@@ -4,7 +4,16 @@
+@@ -1,10 +1,19 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <component type="desktop-application">
+-  <id>@progid@.desktop</id>
++  <id>@progid@</id>
    
    <name>@progtitle@</name>
    <summary>3D Lightcycle Game</summary>

@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.armagetronad.org/staging/rc/2024/0.2.9.2_rc_z3006/armagetronad-0.2.9.2_rc_z3006.tbz",
-                    "sha256": "844130ad20c28dc00d5b3138088244d430dba2c99ae774259c5960cee2a996cb"
+                    "url": "https://launchpad.net/armagetronad/0.2.9/0.2.9.2.5/+download/armagetronad-0.2.9.2.5.tbz",
+                    "sha256": "941d9f194340b84b1dd36d0f58c089660a15814ce37ca3813b90105dbedc5619"
                 },
                 {
                     "type": "shell",

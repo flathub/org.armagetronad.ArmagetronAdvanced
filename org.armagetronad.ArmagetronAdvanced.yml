@@ -32,8 +32,8 @@ modules:
       - CXXFLAGS=-DUSER_DATA_DIR='"$${XDG_DATA_HOME}/ArmagetronAdvanced"' -DUSER_CONFIG_DIR='"$${XDG_CONFIG_HOME}/ArmagetronAdvanced"' -DAUTORESOURCE_DIR='"$${XDG_CACHE_HOME}/ArmagetronAdvanced/resource"'
     sources:
       - type: archive
-        url: https://download.armagetronad.org/staging/alpha/2024/0.2.9.3_alpha_z3065/armagetronad-alpha-0.2.9.3_alpha_z3065.tbz
-        sha256: a7f57a5a12ccc8988467dfcebb71788495976ca5a885a3fe4e809b902c49a07c
+        url: https://launchpad.net/armagetronad/0.2.9/0.2.9.3.0/+download/armagetronad-0.2.9.3.0.tbz
+        sha256: 9e0d27048ecfc963c8b07dc31177040561f221ca37e80af832b946b6e0a23fe0
       - type: shell
         commands:
           - test -r configure || ./bootstrap.sh

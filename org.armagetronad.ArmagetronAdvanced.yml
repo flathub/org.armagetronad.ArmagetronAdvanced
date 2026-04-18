@@ -2,6 +2,7 @@ app-id: org.armagetronad.ArmagetronAdvanced
 runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
+desktop-file-name-suffix: 'Flatpak'
 finish-args:
   - --device=dri
   - --share=ipc
@@ -31,14 +32,12 @@ modules:
       - CXXFLAGS=-DUSER_DATA_DIR='"$${XDG_DATA_HOME}/ArmagetronAdvanced"' -DUSER_CONFIG_DIR='"$${XDG_CONFIG_HOME}/ArmagetronAdvanced"' -DAUTORESOURCE_DIR='"$${XDG_CACHE_HOME}/ArmagetronAdvanced/resource"'
     sources:
       - type: archive
-        url: https://launchpad.net/armagetronad/0.2.9/0.2.9.2.5/+download/armagetronad-0.2.9.2.5.tbz
-        sha256: 941d9f194340b84b1dd36d0f58c089660a15814ce37ca3813b90105dbedc5619
+        url: https://launchpad.net/armagetronad/0.2.9/0.2.9.3.0/+download/armagetronad-0.2.9.3.0.tbz
+        sha256: 9e0d27048ecfc963c8b07dc31177040561f221ca37e80af832b946b6e0a23fe0
       - type: shell
         commands:
           - test -r configure || ./bootstrap.sh
           - sed -i batch/sysinstall.in -e 's,install_link ,install ,g'
-      - type: patch
-        path: armagetronad-appdata.patch
     post-install:
       - sed -i ${FLATPAK_DEST}/share/appdata/*.xml -e 's,x-flatpak-,,g' -e 's,\\.desktop</id>,</id>,'
       - desktop-file-edit --remove-key=Path ${FLATPAK_DEST}/share/applications/*.desktop
